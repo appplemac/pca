@@ -1,0 +1,6 @@
+CPU: Intel Ivy Bridge microarchitecture, speed 3.201e+06 MHz (estimated)
+Counted CPU_CLK_UNHALTED events (Clock cycles when not halted) with a unit mask of 0x00 (No unit mask) count 7500
+Counted CPU_CLK_UNHALTED events (Clock cycles when not halted) with a unit mask of 0x00 (No unit mask) count 750000
+samples  %        samples  %        symbol name
+307431   99.9932  13538    100.000  calculate
+21        0.0068  0              0  epilog
