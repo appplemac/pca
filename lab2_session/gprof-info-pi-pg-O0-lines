@@ -1,0 +1,206 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+ 36.38      2.51     2.51                             DIVIDE (pi.c:19 @ 8048728)
+ 12.61      3.38     0.87                             DIVIDE (pi.c:20 @ 804873c)
+  7.97      3.93     0.55                             DIVIDE (pi.c:18 @ 8048707)
+  7.75      4.46     0.54                             SUBTRACT (pi.c:92 @ 8048992)
+  5.94      4.88     0.41                             SUBTRACT (pi.c:94 @ 80489c1)
+  4.64      5.20     0.32                             SUBTRACT (pi.c:90 @ 80489ec)
+  4.06      5.47     0.28                             LONGDIV (pi.c:50 @ 8048835)
+  3.26      5.70     0.23                             LONGDIV (pi.c:56 @ 804887f)
+  2.75      5.89     0.19                             LONGDIV (pi.c:37 @ 80487b1)
+  2.61      6.07     0.18                             DIVIDE (pi.c:21 @ 804874f)
+  2.17      6.22     0.15                             LONGDIV (pi.c:49 @ 8048814)
+  2.17      6.37     0.15                             LONGDIV (pi.c:51 @ 8048849)
+  1.30      6.46     0.09                             DIVIDE (pi.c:16 @ 804875c)
+  1.16      6.54     0.08                             LONGDIV (pi.c:38 @ 80487c5)
+  1.09      6.62     0.07                             LONGDIV (pi.c:55 @ 804885e)
+  1.01      6.68     0.07                             LONGDIV (pi.c:57 @ 804888d)
+  0.58      6.72     0.04                             LONGDIV (pi.c:47 @ 804880b)
+  0.58      6.76     0.04                             SUBTRACT (pi.c:95 @ 80489d9)
+  0.43      6.79     0.03                             LONGDIV (pi.c:36 @ 8048790)
+  0.43      6.83     0.03                             LONGDIV (pi.c:59 @ 80488a0)
+  0.29      6.84     0.02                             LONGDIV (pi.c:45 @ 80488ad)
+  0.29      6.87     0.02                             SUBTRACT (pi.c:98 @ 80489f6)
+  0.22      6.88     0.01                             SUBTRACT (pi.c:90 @ 8048988)
+  0.14      6.89     0.01                             LONGDIV (pi.c:39 @ 80487d8)
+  0.14      6.90     0.01                             LONGDIV (pi.c:34 @ 80487e5)
+  0.00      6.90     0.00    30014     0.00     0.00  DIVIDE (pi.c:10 @ 80486ec)
+  0.00      6.90     0.00    20011     0.00     0.00  SUBTRACT (pi.c:86 @ 804897c)
+  0.00      6.90     0.00    10007     0.00     0.00  SET (pi.c:79 @ 8048946)
+  0.00      6.90     0.00    10005     0.00     0.00  progress (pi.c:178 @ 8048c14)
+  0.00      6.90     0.00    10004     0.00     0.00  LONGDIV (pi.c:26 @ 804876c)
+  0.00      6.90     0.00        2     0.00     0.00  MULTIPLY (pi.c:65 @ 80488c1)
+  0.00      6.90     0.00        1     0.00     0.00  calculate (pi.c:123 @ 8048a55)
+  0.00      6.90     0.00        1     0.00     0.00  epilog (pi.c:183 @ 8048c2d)
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+ 
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this 
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 4 byte(s) for 0.14% of 6.90 seconds
+
+index % time    self  children    called     name
+                0.00    0.00       1/30014       calculate (pi.c:149 @ 8048b85) [72]
+                0.00    0.00       1/30014       calculate (pi.c:152 @ 8048bb5) [74]
+                0.00    0.00   10004/30014       calculate (pi.c:137 @ 8048aea) [64]
+                0.00    0.00   10004/30014       calculate (pi.c:140 @ 8048b1a) [66]
+                0.00    0.00   10004/30014       calculate (pi.c:141 @ 8048b2e) [67]
+[26]     0.0    0.00    0.00   30014         DIVIDE (pi.c:10 @ 80486ec) [26]
+-----------------------------------------------
+                0.00    0.00       1/20011       calculate (pi.c:148 @ 8048b69) [71]
+                0.00    0.00       1/20011       calculate (pi.c:151 @ 8048b99) [73]
+                0.00    0.00       1/20011       calculate (pi.c:155 @ 8048bdd) [76]
+                0.00    0.00   10004/20011       calculate (pi.c:136 @ 8048ace) [63]
+                0.00    0.00   10004/20011       calculate (pi.c:139 @ 8048afe) [65]
+[27]     0.0    0.00    0.00   20011         SUBTRACT (pi.c:86 @ 804897c) [27]
+-----------------------------------------------
+                0.00    0.00       1/10007       calculate (pi.c:128 @ 8048a6d) [58]
+                0.00    0.00       1/10007       calculate (pi.c:129 @ 8048a81) [59]
+                0.00    0.00       1/10007       calculate (pi.c:146 @ 8048b55) [70]
+                0.00    0.00   10004/10007       calculate (pi.c:133 @ 8048aa7) [61]
+[28]     0.0    0.00    0.00   10007         SET (pi.c:79 @ 8048946) [28]
+-----------------------------------------------
+                0.00    0.00       1/10005       calculate (pi.c:158 @ 8048c0d) [78]
+                0.00    0.00   10004/10005       calculate (pi.c:141 @ 8048b2e) [67]
+[29]     0.0    0.00    0.00   10005         progress (pi.c:178 @ 8048c14) [29]
+-----------------------------------------------
+                0.00    0.00   10004/10004       calculate (pi.c:134 @ 8048abb) [62]
+[30]     0.0    0.00    0.00   10004         LONGDIV (pi.c:26 @ 804876c) [30]
+-----------------------------------------------
+                0.00    0.00       1/2           calculate (pi.c:154 @ 8048bc9) [75]
+                0.00    0.00       1/2           calculate (pi.c:156 @ 8048bf9) [77]
+[31]     0.0    0.00    0.00       2         MULTIPLY (pi.c:65 @ 80488c1) [31]
+-----------------------------------------------
+                0.00    0.00       1/1           main (pi.c:115 @ 8048a44) [99]
+[32]     0.0    0.00    0.00       1         calculate (pi.c:123 @ 8048a55) [32]
+-----------------------------------------------
+                0.00    0.00       1/1           main (pi.c:115 @ 8048a44) [99]
+[33]     0.0    0.00    0.00       1         epilog (pi.c:183 @ 8048c2d) [33]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+
+Index by function name
+
+  [26] DIVIDE (pi.c:10 @ 80486ec) [25] LONGDIV (pi.c:34 @ 80487e5) [28] SET (pi.c:79 @ 8048946)
+   [3] DIVIDE (pi.c:18 @ 8048707) [17] LONGDIV (pi.c:47 @ 804880b) [27] SUBTRACT (pi.c:86 @ 804897c)
+   [1] DIVIDE (pi.c:19 @ 8048728) [11] LONGDIV (pi.c:49 @ 8048814) [23] SUBTRACT (pi.c:90 @ 8048988)
+   [2] DIVIDE (pi.c:20 @ 804873c) [7] LONGDIV (pi.c:50 @ 8048835) [4] SUBTRACT (pi.c:92 @ 8048992)
+  [10] DIVIDE (pi.c:21 @ 804874f) [12] LONGDIV (pi.c:51 @ 8048849) [5] SUBTRACT (pi.c:94 @ 80489c1)
+  [13] DIVIDE (pi.c:16 @ 804875c) [15] LONGDIV (pi.c:55 @ 804885e) [18] SUBTRACT (pi.c:95 @ 80489d9)
+  [30] LONGDIV (pi.c:26 @ 804876c) [8] LONGDIV (pi.c:56 @ 804887f) [6] SUBTRACT (pi.c:90 @ 80489ec)
+  [19] LONGDIV (pi.c:36 @ 8048790) [16] LONGDIV (pi.c:57 @ 804888d) [22] SUBTRACT (pi.c:98 @ 80489f6)
+   [9] LONGDIV (pi.c:37 @ 80487b1) [20] LONGDIV (pi.c:59 @ 80488a0) [32] calculate (pi.c:123 @ 8048a55)
+  [14] LONGDIV (pi.c:38 @ 80487c5) [21] LONGDIV (pi.c:45 @ 80488ad) [33] epilog (pi.c:183 @ 8048c2d)
+  [24] LONGDIV (pi.c:39 @ 80487d8) [31] MULTIPLY (pi.c:65 @ 80488c1) [29] progress (pi.c:178 @ 8048c14)

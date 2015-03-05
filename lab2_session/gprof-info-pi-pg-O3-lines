@@ -1,0 +1,74 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+  6.96      0.19     0.19                             LONGDIV (pi.c:57 @ 8048a41)
+  6.59      0.37     0.18                             SUBTRACT (pi.c:90 @ 8048a6e)
+  6.23      0.54     0.17                             SUBTRACT (pi.c:92 @ 8048a86)
+  5.49      0.69     0.15                             LONGDIV (pi.c:50 @ 8048a11)
+  5.13      0.83     0.14                             LONGDIV (pi.c:51 @ 8048a17)
+  4.95      0.96     0.14                             DIVIDE (pi.c:19 @ 8048b65)
+  4.58      1.09     0.12                             SUBTRACT (pi.c:92 @ 8048afe)
+  3.66      1.19     0.10                             DIVIDE (pi.c:19 @ 8048ac5)
+  3.66      1.29     0.10                             DIVIDE (pi.c:20 @ 8048acf)
+  3.66      1.39     0.10                             DIVIDE (pi.c:19 @ 8048b35)
+  3.30      1.48     0.09                             LONGDIV (pi.c:49 @ 8048a08)
+  3.30      1.57     0.09                             LONGDIV (pi.c:37 @ 8048bc5)
+  3.30      1.66     0.09                             LONGDIV (pi.c:38 @ 8048bcb)
+  3.11      1.75     0.09                             DIVIDE (pi.c:20 @ 8048b6f)
+  2.93      1.82     0.08                             DIVIDE (pi.c:21 @ 8048b75)
+  2.93      1.91     0.08                             SUBTRACT (pi.c:94 @ 8048b09)
+  2.75      1.98     0.07                             SUBTRACT (pi.c:94 @ 8048a91)
+  2.56      2.05     0.07                             DIVIDE (pi.c:122 @ 8048ae4)
+  2.56      2.12     0.07                             DIVIDE (pi.c:20 @ 8048b3f)
+  2.20      2.18     0.06                             SUBTRACT (pi.c:95 @ 8048a97)
+  2.01      2.23     0.06                             SUBTRACT (pi.c:94 @ 8048a9b)
+  1.83      2.29     0.05                             DIVIDE (pi.c:21 @ 8048b45)
+  1.47      2.33     0.04                             DIVIDE (pi.c:16 @ 8048ae0)
+  1.47      2.37     0.04                             DIVIDE (pi.c:16 @ 8048b50)
+  1.47      2.40     0.04                             DIVIDE (pi.c:18 @ 8048b58)
+  1.47      2.44     0.04                             LONGDIV (pi.c:39 @ 8048bd0)
+  1.28      2.48     0.04                             SUBTRACT (pi.c:95 @ 8048b0f)
+  1.10      2.51     0.03                             DIVIDE (pi.c:18 @ 8048b28)
+  1.10      2.54     0.03                             DIVIDE (pi.c:16 @ 8048b80)
+  1.10      2.57     0.03                             LONGDIV (pi.c:59 @ 8048a1c)
+  0.73      2.59     0.02                             DIVIDE (pi.c:18 @ 8048ab8)
+  0.73      2.61     0.02                             DIVIDE (pi.c:21 @ 8048ad5)
+  0.73      2.63     0.02                             LONGDIV (pi.c:56 @ 8048a38)
+  0.55      2.65     0.01                             LONGDIV (pi.c:38 @ 8048bd9)
+  0.55      2.66     0.01                             LONGDIV (pi.c:34 @ 8048bdb)
+  0.55      2.67     0.01                             SUBTRACT (pi.c:94 @ 8048b13)
+  0.37      2.69     0.01                             LONGDIV (pi.c:47 @ 8048a27)
+  0.37      2.69     0.01                             LONGDIV (pi.c:55 @ 8048a2f)
+  0.37      2.71     0.01                             LONGDIV (pi.c:59 @ 8048a46)
+  0.37      2.71     0.01                             LONGDIV (pi.c:45 @ 8048a4d)
+  0.37      2.73     0.01                             LONGDIV (pi.c:36 @ 8048bb8)
+  0.18      2.73     0.01                             SUBTRACT (pi.c:90 @ 8048af6)
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+ 
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this 
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
