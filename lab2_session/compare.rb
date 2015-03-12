@@ -39,14 +39,13 @@ end.parse!
   raise OptionParser::MissingArgument, "Missing argument: #{opt}" if options[opt].nil?
 end
 
-# Record the original program output
-orig_stdout, orig_status = Open3.capture2(options[:original])
-
 puts "N \t Elapsed time"
 
 Range.new(options[:min], options[:max]).step(options[:step]).each do |ndecimals|
+  # Record the original program output
+  orig_stdout, orig_status = Open3.capture2("#{options[:original]} #{ndecimals}")
   start = Time.now
-  opt_stdout, opt_status = Open3.capture2(options[:optimised]) # add params?
+  opt_stdout, opt_status = Open3.capture2("#{options[:optimised]} #{ndecimals}")
   finish = Time.now
   diff = [finish - start] # Time objects!
   if (opt_stdout != orig_stdout or opt_status != orig_status)
@@ -55,7 +54,7 @@ Range.new(options[:min], options[:max]).step(options[:step]).each do |ndecimals|
 
   (options[:exec_avg] - 1).times do
     start = Time.now
-    opt_stdout, opt_status = Open3.capture2(options[:optimised])
+    opt_stdout, opt_status = Open3.capture2("#{options[:optimised]} #{ndecimals}")
     finish = Time.now
     diff << (finish - start)
   end

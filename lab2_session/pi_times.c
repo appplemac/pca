@@ -124,9 +124,9 @@ int main( int argc, char *argv[] )
 void calculate( void )
 {
     int j;
-    struct tms start, end;
+    struct rusage start, end;
 
-    if (times(&start) == (clock_t)-1) exit(0);
+    if (getrusage(RUSAGE_SELF, &start) == -1) exit(0);
 
     N4 = N + 4;
 
@@ -162,8 +162,14 @@ void calculate( void )
 
     progress();
 
-    if (times(&end) == (clock_t)-1) exit(0);
-    fprintf(stderr, "\n Timing amb crida times: user %f segons, system: %f segons\n", (float)(end.tms_utime-start.tms_utime)/sysconf(_SC_CLK_TCK), (float)(end.tms_stime-start.tms_stime)/sysconf(_SC_CLK_TCK));
+    if (getrusage(RUSAGE_SELF, &end) == -1) exit(0);
+    fprintf(stderr, "\n Timing amb crida times:\n");
+    long int user_tv_sec = end.ru_utime.tv_sec - start.ru_utime.tv_sec;
+    long int user_tv_usec = end.ru_utime.tv_usec - start.ru_utime.tv_usec;
+    long int system_tv_sec = end.ru_stime.tv_sec - start.ru_stime.tv_sec;
+    long int system_tv_usec = end.ru_stime.tv_usec - start.ru_stime.tv_usec;
+    fprintf(stderr, "user %ld.%06ld segons\n", user_tv_sec, user_tv_usec);
+    fprintf(stderr, "system %ld.%06ld segons\n", system_tv_sec, system_tv_usec);
 }
 
 /*
