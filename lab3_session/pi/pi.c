@@ -178,22 +178,22 @@ void progress( void )
 
 void epilog( void )
 {
-  int j;
+    int j;
 
-  {
-    fprintf( stdout, " \n3.");
-    for( j = 1; j <= N; j++ )
     {
-      fprintf( stdout, "%d", a[j]);
-      if( j % 5  == 0 )
-        if( j % 50 == 0 )
-          if( j % 250  == 0 )
-            fprintf( stdout, "  <%d>\n\n   ", j );
-          else
-            fprintf( stdout, "\n   " );
-        else
-          fprintf( stdout, " " );
+        fprintf( stdout, " \n3.");
+        for( j = 1; j <= N; j++ )
+        {
+            fprintf( stdout, "%d", a[j]);
+            if( j % 5  == 0 )
+                if( j % 50 == 0 )
+                    if( j % 250  == 0 )
+                        fprintf( stdout, "    <%d>\n\n   ", j );
+                    else
+                        fprintf( stdout, "\n   " );
+                else
+                    fprintf( stdout, " " );
+        }
     }
-  }
 }
 

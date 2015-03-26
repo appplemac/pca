@@ -9,12 +9,31 @@ char string[100];
 unsigned u_239[2390];
 unsigned u_25[250];
 
+unsigned q_239[10];
+unsigned q_25[10];
+
+unsigned r_239[239];
+unsigned r_25[25];
+
 void precalc() {
   int i;
   for (i = 0; i < 2390; ++i) {
-    u_239[i] = i / 239;
+    u_239[i] = i / 239; // 0 <= u_239 < 10
   }
-  for (i = 0; i < 250; ++i) u_25[i] = i / 25;
+  for (i = 0; i < 250; ++i) u_25[i] = i / 25; // 0 <= u_25 < 10
+
+  for (i = 0; i < 10; ++i) {
+    q_239[i] = 239 * i;
+    q_25[i] = 25 * i;
+  }
+
+  for (i = 0; i < 239; ++i) {
+    r_239[i] = i*10;
+  }
+
+  for (i = 0; i < 25; ++i) {
+    r_25[i] = i*10;
+  }
 }
 
 void DIV239( char *x )
@@ -26,9 +45,9 @@ void DIV239( char *x )
   r = 0;
   for( k = 0; k <= N4; k++ )
   {
-    u = r * 10 + x[k];
+    u = r_239[r] + x[k];
     q = u_239[u];
-    r = u - q * 239;
+    r = u - q_239[q];
     x[k] = q;
   }
 }
@@ -42,9 +61,9 @@ void DIV25( char *x )
   r = 0;
   for( k = 0; k <= N4; k++ )
   {
-    u = r * 10 + x[k];
+    u = r_25[r] + x[k];
     q = u_25[u];
-    r = u - q * 25;
+    r = u - q_25[q];
     x[k] = q;
   }
 }
