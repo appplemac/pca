@@ -12,11 +12,16 @@ void DIVIDE( char *x, int n )
   unsigned q, r, u;
   long v;
 
+  int umin = 100;
+  int umax = 0;
+
   r = 0;
   for( k = 0; k <= N4; k++ )
   {
     u = r * 10 + x[k];
     q = u / n;
+    if (u < umin) umin = u;
+    if (u > umax) umax = u;
     r = u - q * n;
     x[k] = q;
   }

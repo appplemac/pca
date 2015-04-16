@@ -1,38 +1,27 @@
 #include <memory.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 int N, N4;
 char a[10240], b[10240], c[10240];
 char string[100];
 
-unsigned u_239[2390];
-unsigned u_25[250];
+uint16_t r_239[2390];
+unsigned char r_25[250];
 
-unsigned q_239[10];
-unsigned q_25[10];
-
-unsigned r_239[239];
-unsigned r_25[25];
+unsigned char q_239[2390];
+unsigned char q_25[250];
 
 void precalc() {
   int i;
   for (i = 0; i < 2390; ++i) {
-    u_239[i] = i / 239; // 0 <= u_239 < 10
+    q_239[i] = i / 239;
+    r_239[i] = (i-(i / 239)*239)*10;
   }
-  for (i = 0; i < 250; ++i) u_25[i] = i / 25; // 0 <= u_25 < 10
-
-  for (i = 0; i < 10; ++i) {
-    q_239[i] = 239 * i;
-    q_25[i] = 25 * i;
-  }
-
-  for (i = 0; i < 239; ++i) {
-    r_239[i] = i*10;
-  }
-
-  for (i = 0; i < 25; ++i) {
-    r_25[i] = i*10;
+  for (i = 0; i < 250; ++i) {
+    r_25[i] = (i-(i / 25)*25)*10;
+    q_25[i] = i / 25;
   }
 }
 
@@ -45,9 +34,9 @@ void DIV239( char *x )
   r = 0;
   for( k = 0; k <= N4; k++ )
   {
-    u = r_239[r] + x[k];
-    q = u_239[u];
-    r = u - q_239[q];
+    u = r + x[k];
+    q = q_239[u];
+    r = r_239[u];
     x[k] = q;
   }
 }
@@ -61,9 +50,9 @@ void DIV25( char *x )
   r = 0;
   for( k = 0; k <= N4; k++ )
   {
-    u = r_25[r] + x[k];
-    q = u_25[u];
-    r = u - q_25[q];
+    u = r + x[k];
+    q = q_25[u];
+    r = r_25[u];
     x[k] = q;
   }
 }
