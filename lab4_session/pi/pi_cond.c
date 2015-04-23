@@ -29,7 +29,7 @@ void precalc() {
   sub_10[0] = 0;
   sub_10[1] = 10;
   sub_1[0] = 0;
-  sub_10[1] = 1;
+  sub_1[1] = 1;
 }
 
 #define DIV239_OP(u,r,x,k,q,q_239,r_239) \
