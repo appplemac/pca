@@ -13,8 +13,8 @@ unsigned char r_25[250];
 unsigned char q_239[2390];
 unsigned char q_25[250];
 
-unsigned char sub_10[20];
-unsigned char sub_1[20];
+unsigned char sub_10[2];
+unsigned char sub_1[2];
 
 void precalc() {
   int i;
@@ -26,14 +26,10 @@ void precalc() {
     r_25[i] = (i-(i / 25)*25)*10;
     q_25[i] = i / 25;
   }
-  for (i = 0; i < 10; ++i) {
-    sub_10[i] = 0;
-    sub_1[i] = 0;
-  }
-  for (i = 10; i < 20; ++i) {
-    sub_10[i] = 10;
-    sub_1[i] = 1;
-  }
+  sub_10[0] = 0;
+  sub_10[1] = 10;
+  sub_1[0] = 0;
+  sub_10[1] = 1;
 }
 
 #define DIV239_OP(u,r,x,k,q,q_239,r_239) \
@@ -208,12 +204,14 @@ void SUBTRACT_FUSE( char *x1, char *x2, char *y, char *z1, char *z2 )
   for( k = N4; k >= 0; k-- )
   {
     x1[k] = y[k] - z1[k];
-    x1[k] += sub_10[x1[k]+10];
-    z1[k-1] += sub_1[x1[k]+10];
+    int id = (x1[k] < 0);
+    x1[k] += sub_10[id];
+    z1[k-1] += sub_1[id];
 
     x2[k] = y[k] - z2[k];
-    x2[k] += sub_10[x2[k]+10];
-    z2[k-1] += sub_1[x2[k]+10];
+    id = (x2[k] < 0);
+    x2[k] += sub_10[id];
+    z2[k-1] += sub_1[id];
   }
 }
 
