@@ -4,23 +4,34 @@
 
 #define N_ITER 10000000
 
+#define MATRIX_OP(A,B,C,i,j,k) \
+  C[i][j] = C[i][j] + A[i][k] * B[k][j]
+
+#define INNER1_OP(A,B,C,i,j) \
+  MATRIX_OP(A,B,C,i,j,0); \
+  MATRIX_OP(A,B,C,i,j,1); \
+  MATRIX_OP(A,B,C,i,j,2); \
+  MATRIX_OP(A,B,C,i,j,3)
+
+#define INNER2_OP(A,B,C,i) \
+  INNER1_OP(A,B,C,i,0); \
+  INNER1_OP(A,B,C,i,1); \
+  INNER1_OP(A,B,C,i,2); \
+  INNER1_OP(A,B,C,i,3)
+
+#define INNER3_OP(A,B,C) \
+  INNER2_OP(A,B,C,0); \
+  INNER2_OP(A,B,C,1); \
+  INNER2_OP(A,B,C,2); \
+  INNER2_OP(A,B,C,3)
+
 void multiplica(int A[4][4], int B[4][4], int C[4][4], unsigned int n_iter)
 {
    int iter;
-   int i,j,k;
 
    for (iter=0; iter<n_iter; iter++)
    {
-      for (i = 0; i < 4; i++) 
-      {
-        for (j = 0; j < 4; j++) 
-	{
-           for (k = 0; k < 4; k++) 
-	   {
-              C[i][j] = C[i][j] + A[i][k] * B[k][j];
-	   }
-	}
-      }
+     INNER3_OP(A,B,C);
    }
 }
 
