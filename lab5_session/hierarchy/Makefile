@@ -1,4 +1,4 @@
-CC = /usr/local/bin/gcc-4.2 -m64
+CC = gcc
 CFLAGS = -Wall -O2 -g 
 
 hierarchy: hierarchy.c fcyc2.c clock.c

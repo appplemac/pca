@@ -1,6 +1,6 @@
 #! /bin/sh
 
-n_elems=100000000
+n_elems=10000000
 n_bits=22
 runs=3
 freq=3200000
