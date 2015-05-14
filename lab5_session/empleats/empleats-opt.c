@@ -78,8 +78,8 @@ int main(int argc, char *argv[])
 	qsort(index, N, sizeof(index_node), compare_index);
   Templeat * buffer = (Templeat *)malloc(sizeof(Templeat)*2000);
   int j;
-	for (i=0; i<N; i+=2000){
-    for (j=0; j<2000 && i+j<N; ++j) {
+	for (i=0; i<N; i+=100){
+    for (j=0; j<100 && i+j<N; ++j) {
       buffer[j] = empleats[index[i+j].empleat_index];
     }
     write(1, buffer,(sizeof(Templeat)*j));
