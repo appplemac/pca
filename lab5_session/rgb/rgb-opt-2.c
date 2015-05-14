@@ -3,8 +3,7 @@
 #include <unistd.h>
 
 typedef struct {
-   char r;
-   char g;
+   short rg;
    char b;
 } Tpixel;
 
@@ -17,12 +16,11 @@ void rgb_verd()
 {
   unsigned int i,j;
 
-  for ( j=0 ; j<COLUMNS; j++)
+  for ( i=0 ; i<ROWS; i++)
   {
-    for ( i=0 ; i<ROWS; i++)
+    for ( j=0 ; j<COLUMNS; j++)
     {
-       buffer[i][j].r = 0;
-       buffer[i][j].g = 1;
+       buffer[i][j].rg = 0x01;
        buffer[i][j].b = 0;
     }
   }

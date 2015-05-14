@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+
 typedef struct {
    char r;
    char g;
@@ -17,9 +18,9 @@ void rgb_verd()
 {
   unsigned int i,j;
 
-  for ( j=0 ; j<COLUMNS; j++)
+  for ( i=0 ; i<ROWS; i++)
   {
-    for ( i=0 ; i<ROWS; i++)
+    for ( j=0 ; j<COLUMNS; j++)
     {
        buffer[i][j].r = 0;
        buffer[i][j].g = 1;

@@ -7,6 +7,7 @@
 #define MAX_CATEGORIA 40 
 #define MAX_ADDRESS 100
 
+#define EXTES 1
 
 typedef struct 
 {
