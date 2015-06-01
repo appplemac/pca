@@ -1,0 +1,162 @@
+
+vector_add.e16:     file format mach-o-x86-64
+
+
+Disassembly of section .text:
+
+0000000100000d20 <_vector_add>:
+   100000d20:	45 31 d2             	xor    %r10d,%r10d
+   100000d23:	45 85 c0             	test   %r8d,%r8d
+   100000d26:	7e 39                	jle    100000d61 <_vector_add+0x41>
+   100000d28:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+   100000d2f:	00 
+   100000d30:	31 c0                	xor    %eax,%eax
+   100000d32:	85 c9                	test   %ecx,%ecx
+   100000d34:	7e 21                	jle    100000d57 <_vector_add+0x37>
+   100000d36:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+   100000d3d:	00 00 00 
+   100000d40:	44 0f b7 0c 47       	movzwl (%rdi,%rax,2),%r9d
+   100000d45:	66 44 03 0c 46       	add    (%rsi,%rax,2),%r9w
+   100000d4a:	66 44 89 0c 42       	mov    %r9w,(%rdx,%rax,2)
+   100000d4f:	48 83 c0 01          	add    $0x1,%rax
+   100000d53:	39 c1                	cmp    %eax,%ecx
+   100000d55:	7f e9                	jg     100000d40 <_vector_add+0x20>
+   100000d57:	41 83 c2 01          	add    $0x1,%r10d
+   100000d5b:	45 39 c2             	cmp    %r8d,%r10d
+   100000d5e:	75 d0                	jne    100000d30 <_vector_add+0x10>
+   100000d60:	c3                   	retq   
+   100000d61:	c3                   	retq   
+
+Disassembly of section __TEXT.__text_startup:
+
+0000000100000d70 <_main>:
+   100000d70:	41 56                	push   %r14
+   100000d72:	41 55                	push   %r13
+   100000d74:	41 54                	push   %r12
+   100000d76:	55                   	push   %rbp
+   100000d77:	53                   	push   %rbx
+   100000d78:	89 fb                	mov    %edi,%ebx
+   100000d7a:	83 ff 01             	cmp    $0x1,%edi
+   100000d7d:	0f 8e f3 00 00 00    	jle    100000e76 <_main+0x106>
+   100000d83:	48 8b 7e 08          	mov    0x8(%rsi),%rdi
+   100000d87:	48 89 f5             	mov    %rsi,%rbp
+   100000d8a:	e8 27 01 00 00       	callq  100000eb6 <_atoi$stub>
+   100000d8f:	41 89 c6             	mov    %eax,%r14d
+   100000d92:	83 fb 02             	cmp    $0x2,%ebx
+   100000d95:	0f 84 d1 00 00 00    	je     100000e6c <_main+0xfc>
+   100000d9b:	48 8b 7d 10          	mov    0x10(%rbp),%rdi
+   100000d9f:	e8 12 01 00 00       	callq  100000eb6 <_atoi$stub>
+   100000da4:	3d 00 20 00 00       	cmp    $0x2000,%eax
+   100000da9:	0f 8f d7 00 00 00    	jg     100000e86 <_main+0x116>
+   100000daf:	48 63 d8             	movslq %eax,%rbx
+   100000db2:	4c 8d 2c 1b          	lea    (%rbx,%rbx,1),%r13
+   100000db6:	4c 89 ef             	mov    %r13,%rdi
+   100000db9:	e8 04 01 00 00       	callq  100000ec2 <_malloc$stub>
+   100000dbe:	48 89 c5             	mov    %rax,%rbp
+   100000dc1:	48 85 c0             	test   %rax,%rax
+   100000dc4:	0f 84 d7 00 00 00    	je     100000ea1 <_main+0x131>
+   100000dca:	4c 89 ef             	mov    %r13,%rdi
+   100000dcd:	e8 f0 00 00 00       	callq  100000ec2 <_malloc$stub>
+   100000dd2:	49 89 c4             	mov    %rax,%r12
+   100000dd5:	48 85 c0             	test   %rax,%rax
+   100000dd8:	0f 84 c3 00 00 00    	je     100000ea1 <_main+0x131>
+   100000dde:	4c 89 ef             	mov    %r13,%rdi
+   100000de1:	e8 dc 00 00 00       	callq  100000ec2 <_malloc$stub>
+   100000de6:	49 89 c5             	mov    %rax,%r13
+   100000de9:	48 85 c0             	test   %rax,%rax
+   100000dec:	0f 84 af 00 00 00    	je     100000ea1 <_main+0x131>
+   100000df2:	47 8d 04 36          	lea    (%r14,%r14,1),%r8d
+   100000df6:	48 d1 eb             	shr    %rbx
+   100000df9:	31 c9                	xor    %ecx,%ecx
+   100000dfb:	89 de                	mov    %ebx,%esi
+   100000dfd:	85 db                	test   %ebx,%ebx
+   100000dff:	7e 3b                	jle    100000e3c <_main+0xcc>
+   100000e01:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 nopw %cs:0x0(%rax,%rax,1)
+   100000e08:	0f 1f 84 00 00 00 00 
+   100000e0f:	00 
+   100000e10:	44 8d 51 03          	lea    0x3(%rcx),%r10d
+   100000e14:	89 ca                	mov    %ecx,%edx
+   100000e16:	44 8d 49 fb          	lea    -0x5(%rcx),%r9d
+   100000e1a:	c1 e2 06             	shl    $0x6,%edx
+   100000e1d:	45 31 d1             	xor    %r10d,%r9d
+   100000e20:	41 89 ca             	mov    %ecx,%r10d
+   100000e23:	66 89 54 4d 00       	mov    %dx,0x0(%rbp,%rcx,2)
+   100000e28:	41 c1 e2 04          	shl    $0x4,%r10d
+   100000e2c:	45 31 d1             	xor    %r10d,%r9d
+   100000e2f:	66 45 89 0c 4c       	mov    %r9w,(%r12,%rcx,2)
+   100000e34:	48 83 c1 01          	add    $0x1,%rcx
+   100000e38:	39 ce                	cmp    %ecx,%esi
+   100000e3a:	7f d4                	jg     100000e10 <_main+0xa0>
+   100000e3c:	89 d9                	mov    %ebx,%ecx
+   100000e3e:	4c 89 ea             	mov    %r13,%rdx
+   100000e41:	4c 89 e6             	mov    %r12,%rsi
+   100000e44:	48 89 ef             	mov    %rbp,%rdi
+   100000e47:	e8 d4 fe ff ff       	callq  100000d20 <_vector_add>
+   100000e4c:	48 63 d3             	movslq %ebx,%rdx
+   100000e4f:	4c 89 ee             	mov    %r13,%rsi
+   100000e52:	bf 01 00 00 00       	mov    $0x1,%edi
+   100000e57:	48 01 d2             	add    %rdx,%rdx
+   100000e5a:	31 c0                	xor    %eax,%eax
+   100000e5c:	e8 73 00 00 00       	callq  100000ed4 <_write$stub>
+   100000e61:	5b                   	pop    %rbx
+   100000e62:	31 c0                	xor    %eax,%eax
+   100000e64:	5d                   	pop    %rbp
+   100000e65:	41 5c                	pop    %r12
+   100000e67:	41 5d                	pop    %r13
+   100000e69:	41 5e                	pop    %r14
+   100000e6b:	c3                   	retq   
+   100000e6c:	b8 00 20 00 00       	mov    $0x2000,%eax
+   100000e71:	e9 39 ff ff ff       	jmpq   100000daf <_main+0x3f>
+   100000e76:	41 be 20 a1 07 00    	mov    $0x7a120,%r14d
+   100000e7c:	b8 00 20 00 00       	mov    $0x2000,%eax
+   100000e81:	e9 29 ff ff ff       	jmpq   100000daf <_main+0x3f>
+   100000e86:	48 8d 3d 9b 00 00 00 	lea    0x9b(%rip),%rdi        # 100000f28 <_write$stub+0x54>
+   100000e8d:	be 00 20 00 00       	mov    $0x2000,%esi
+   100000e92:	31 c0                	xor    %eax,%eax
+   100000e94:	e8 2f 00 00 00       	callq  100000ec8 <_printf$stub>
+   100000e99:	83 cf ff             	or     $0xffffffff,%edi
+   100000e9c:	e8 1b 00 00 00       	callq  100000ebc <_exit$stub>
+   100000ea1:	48 8d 3d 9c 00 00 00 	lea    0x9c(%rip),%rdi        # 100000f44 <_write$stub+0x70>
+   100000ea8:	e8 21 00 00 00       	callq  100000ece <_puts$stub>
+   100000ead:	83 cf ff             	or     $0xffffffff,%edi
+   100000eb0:	e8 07 00 00 00       	callq  100000ebc <_exit$stub>
+
+Disassembly of section __TEXT.__stubs:
+
+0000000100000eb6 <_atoi$stub>:
+   100000eb6:	ff 25 54 01 00 00    	jmpq   *0x154(%rip)        # 100001010 <_atoi$stub>
+
+0000000100000ebc <_exit$stub>:
+   100000ebc:	ff 25 56 01 00 00    	jmpq   *0x156(%rip)        # 100001018 <_exit$stub>
+
+0000000100000ec2 <_malloc$stub>:
+   100000ec2:	ff 25 58 01 00 00    	jmpq   *0x158(%rip)        # 100001020 <_malloc$stub>
+
+0000000100000ec8 <_printf$stub>:
+   100000ec8:	ff 25 5a 01 00 00    	jmpq   *0x15a(%rip)        # 100001028 <_printf$stub>
+
+0000000100000ece <_puts$stub>:
+   100000ece:	ff 25 5c 01 00 00    	jmpq   *0x15c(%rip)        # 100001030 <_puts$stub>
+
+0000000100000ed4 <_write$stub>:
+   100000ed4:	ff 25 5e 01 00 00    	jmpq   *0x15e(%rip)        # 100001038 <_write$stub>
+
+Disassembly of section __TEXT.__stub_helper:
+
+0000000100000edc <__TEXT.__stub_helper>:
+   100000edc:	4c 8d 1d 25 01 00 00 	lea    0x125(%rip),%r11        # 100001008 <>
+   100000ee3:	41 53                	push   %r11
+   100000ee5:	ff 25 15 01 00 00    	jmpq   *0x115(%rip)        # 100001000 <dyld_stub_binder$stub>
+   100000eeb:	90                   	nop
+   100000eec:	68 00 00 00 00       	pushq  $0x0
+   100000ef1:	e9 e6 ff ff ff       	jmpq   100000edc <_write$stub+0x8>
+   100000ef6:	68 0c 00 00 00       	pushq  $0xc
+   100000efb:	e9 dc ff ff ff       	jmpq   100000edc <_write$stub+0x8>
+   100000f00:	68 18 00 00 00       	pushq  $0x18
+   100000f05:	e9 d2 ff ff ff       	jmpq   100000edc <_write$stub+0x8>
+   100000f0a:	68 26 00 00 00       	pushq  $0x26
+   100000f0f:	e9 c8 ff ff ff       	jmpq   100000edc <_write$stub+0x8>
+   100000f14:	68 34 00 00 00       	pushq  $0x34
+   100000f19:	e9 be ff ff ff       	jmpq   100000edc <_write$stub+0x8>
+   100000f1e:	68 40 00 00 00       	pushq  $0x40
+   100000f23:	e9 b4 ff ff ff       	jmpq   100000edc <_write$stub+0x8>
