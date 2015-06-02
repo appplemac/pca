@@ -2,11 +2,14 @@
 #include <stdlib.h>
 #include <time.h>
 
+#define BUFSIZE 128
+
 void transpose(float *dst, float *src, int dim) {
     int i, j, ii, jj;
+    int chunk = dim/2;
     for (i = 0; i < dim; i ++) {
         for(j = 0; j < dim; j ++) {
-           dst[j * dim + i] = src[i * dim + j];
+           /*dst[j * dim + i] = src[i * dim + j];*/
         }
     }
 }
@@ -18,7 +21,7 @@ int main(int argc, char *argv[]) {
         printf("Usage: ./exec N\n");
         exit(0);
     }
-    
+
     int dim = atoi(argv[1]);
 
     float *src = malloc(dim*dim*sizeof(int));
